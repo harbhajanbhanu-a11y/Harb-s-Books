@@ -1,0 +1,58 @@
+import { Book } from '../types';
+
+export const books: Book[] = [
+  {
+    "id": "samay-patrika",
+    "title": "Samay Patrika",
+    "author": "Harbhajan Bhanu",
+    "price": 99,
+    "priceDisplay": "₹99",
+    "currency": "₹",
+    "category": "Life Lessons",
+    "language": "हिंदी",
+    "format": "Digital PDF",
+    "description": "समय और ज़िंदगी से जुड़ी सीखों और विचारों का संग्रह।",
+    "shortDescription": "समय हमारी ज़िंदगी की सबसे कीमती चीज़ों में से एक है। यह किताब समय, ज़िंदगी, मेहनत, रिश्तों और उन छोटी-छोटी सच्चाइयों से जुड़े विचारों और सीखों को सामने रखती है, जिन्हें हम अक्सर देर से समझते हैं।",
+    "coverImage": null,
+    "coverAccentColor": "#292524",
+    "featured": true,
+    "aboutBook": [
+      "Samay Patrika ज़िंदगी और समय से जुड़े उन विचारों और सीखों का संग्रह है, जो हमें अपनी सोच, आदतों और ज़िंदगी को थोड़ा बेहतर तरीके से देखने में मदद कर सकते हैं।",
+      "इसमें आपको ज़िंदगी की ऐसी बातें मिलेंगी जो कभी हमें सोचने पर मजबूर करती हैं और कभी खुद को बेहतर समझने में मदद करती हैं।"
+    ]
+  },
+  {
+    "id": "safalta-ke-raaste",
+    "title": "Safalta Ke Raaste",
+    "author": "Harbhajan Bhanu",
+    "price": 149,
+    "priceDisplay": "₹149",
+    "currency": "₹",
+    "category": "Success / Self Improvement",
+    "language": "हिंदी",
+    "format": "Digital PDF",
+    "description": "सफलता, मेहनत और आगे बढ़ने की सोच से जुड़ी सीख।",
+    "shortDescription": "सफलता सिर्फ मंज़िल तक पहुँचने का नाम नहीं है, बल्कि उस रास्ते पर मिलने वाली सीख, मेहनत, असफलताओं और लगातार आगे बढ़ने का भी नाम है।",
+    "coverImage": null,
+    "coverAccentColor": "#1c1917",
+    "featured": true,
+    "aboutBook": [
+      "Safalta Ke Raaste सफलता, मेहनत, सोच, अनुशासन, असफलता और आगे बढ़ते रहने से जुड़े विचारों पर आधारित किताब है।",
+      "यह किताब उन लोगों के लिए है जो अपनी ज़िंदगी में कुछ बेहतर करना चाहते हैं और सफलता के रास्ते को सिर्फ नतीजे से नहीं, बल्कि पूरी यात्रा के रूप में समझना चाहते हैं।"
+    ]
+  }
+];
+
+export function getAvailableCategories(): string[] {
+  const categories = new Set<string>();
+  books.forEach((book) => {
+    if (book.category) {
+      categories.add(book.category);
+    }
+  });
+  return Array.from(categories);
+}
+
+export function getBookById(id: string): Book | undefined {
+  return books.find((book) => book.id === id);
+}
